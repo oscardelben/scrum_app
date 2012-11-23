@@ -20,6 +20,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails'
+
 group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'

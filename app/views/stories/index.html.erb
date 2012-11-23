@@ -1,11 +1,17 @@
 <h1>Stories</h1>
 
-<%= link_to 'New Story', new_story_path %>
-
-<% @stories.each do |story| %>
-  <div id="story-<%= story.id %>">
-    <%= story.title %> - <%= story.points %>
-    -
-    <%= link_to 'Edit', edit_story_path(story) %>
+<div class="row">
+  <div class="span12">
+    <p class="pull-right"><%= link_to 'New Story', new_story_path, class: 'btn btn-primary' %></p>
   </div>
-<% end %>
+</div>
+
+<div id="stories">
+  <% @stories.each do |story| %>
+    <div class="well" id="story-<%= story.id %>">
+      <%= story.title %> - <%= story.points %>
+      -
+      <%= link_to 'Edit', edit_story_path(story) %>
+    </div>
+  <% end %>
+</div>
