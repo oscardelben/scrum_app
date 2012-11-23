@@ -22,5 +22,17 @@ class StoriesController < ApplicationController
   end
 
   def edit
+    @story = Story.find params[:id]
+  end
+
+  def update
+    @story = Story.find params[:id]
+    if @story.update_attributes params[:story]
+      flash[:notice] = 'Story was successfully updated.'
+    else
+      flash[:error] = 'There was an error updating the story.'
+    end
+
+    respond_with @story, location: stories_path
   end
 end
