@@ -14,6 +14,30 @@ class StoryTest < ActiveSupport::TestCase
     assert_equal :completed, Story.state(2)
   end
 
+  test '.in_progress returns stories that are in progress' do
+    in_progress_story = Story.make! state: :in_progress
+    backlog_story     = Story.make! state: :backlog
+
+    assert Story.in_progress.include? in_progress_story
+    refute Story.in_progress.include? backlog_story
+  end
+
+  test '.completed returns stories that are completed' do
+    completed_story = Story.make! state: :completed
+    backlog_story   = Story.make! state: :backlog
+
+    assert Story.completed.include? completed_story
+    refute Story.completed.include? backlog_story
+  end
+
+  test '.backlog returns stories that are in the backlog' do
+    backlog_story   = Story.make! state: :backlog
+    completed_story = Story.make! state: :completed
+
+    assert Story.backlog.include? backlog_story
+    refute Story.backlog.include? completed_story
+  end
+
   test 'points' do
     assert_equal [1,2,3,5,8,13,20,50,100], Story::POINTS
   end

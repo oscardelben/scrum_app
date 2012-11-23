@@ -3,7 +3,9 @@ class StoriesController < ApplicationController
   respond_to :html
 
   def index
-    @stories = Story.all
+    @in_progress_stories = Story.in_progress
+    @completed_stories   = Story.completed
+    @backlog_stories     = Story.backlog
   end
 
   def new

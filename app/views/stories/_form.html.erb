@@ -9,6 +9,9 @@
   <%= f.label :points %>
   <%= f.select :points, Story::POINTS %>
 
+  <%= f.label :state %>
+  <%= f.select :state, state_select_options %>
+
   <div class="form-actions">
     <%= f.submit nil, class: 'btn btn-primary' %>
   </div>

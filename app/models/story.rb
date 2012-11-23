@@ -11,6 +11,18 @@ class Story < ActiveRecord::Base
   validates :title, presence: true
   validates :state, inclusion: { in: STATES }
 
+  def self.backlog
+    where status: Story.status(:backlog)
+  end
+
+  def self.in_progress
+    where status: Story.status(:in_progress)
+  end
+
+  def self.completed
+    where status: Story.status(:completed)
+  end
+
   def self.status state
     STATES.index state
   end
