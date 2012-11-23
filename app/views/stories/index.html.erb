@@ -1,0 +1,9 @@
+<h1>Stories</h1>
+
+<%= link_to 'New Story', new_story_path %>
+
+<% @stories.each do |story| %>
+  <div id="story-<%= story.id %>">
+    <%= story.title %> - <%= story.points %>
+  </div>
+<% end %>
