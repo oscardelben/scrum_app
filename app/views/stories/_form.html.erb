@@ -7,7 +7,7 @@
   <%= f.text_area :description %>
 
   <%= f.label :points %>
-  <%= f.select :points, Story::Points %>
+  <%= f.select :points, Story::POINTS %>
 
   <div class="form-actions">
     <%= f.submit nil, class: 'btn btn-primary' %>

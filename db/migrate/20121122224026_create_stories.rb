@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.integer :points
-      t.string :state
+      t.integer :status, :default => 0
 
       t.timestamps
     end
