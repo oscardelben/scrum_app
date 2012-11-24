@@ -1,0 +1,8 @@
+<% stories.each do |story| %>
+  <div class="well" id="story-<%= story.id %>">
+    <%= story.title %> - <%= story.points %>
+    -
+    <%= link_to 'Edit', edit_story_path(story) %>
+  </div>
+<% end %>
+

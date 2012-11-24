@@ -23,20 +23,26 @@ class Story < ActiveRecord::Base
     where status: Story.status(:completed)
   end
 
+  # Returns the internal status represented by `state`.
   def self.status state
     STATES.index state
   end
 
+  # Returns the state represented by `status`
   def self.state status
     STATES[status] if status
   end
 
+  # Returns the state description of the story.
   def state
     Story.state(status)
   end
 
+  # Change state of the story.
+  # You can pass both a Symbol representing the state
+  # or a String (useful from Rails forms).
   def state= state
-    self.status = Story.status(state)
+    self.status = Story.status(state.to_sym)
   end
 
 end

@@ -8,7 +8,7 @@ class ChangeStateTest < ActionDispatch::IntegrationTest
     fill_in :title, with: 'Conquer the world'
     click_button 'Create Story'
 
-    assert page.has_content? 'Page was successfully created.'
+    assert page.has_content? 'Story was successfully created.'
 
     within '#backlog' do
       assert page.has_content? 'Conquer the world'
@@ -22,9 +22,9 @@ class ChangeStateTest < ActionDispatch::IntegrationTest
     select 'In Progress', from: 'State'
     click_button 'Create Story'
 
-    assert page.has_content? 'Page was successfully created.'
+    assert page.has_content? 'Story was successfully created.'
 
-    within '#in_progress' do
+    within '#in-progress' do
       assert page.has_content? 'Conquer the world'
     end
   end
@@ -36,7 +36,7 @@ class ChangeStateTest < ActionDispatch::IntegrationTest
     select 'Completed', from: 'State'
     click_button 'Create Story'
 
-    assert page.has_content? 'Page was successfully created.'
+    assert page.has_content? 'Story was successfully created.'
 
     within '#completed' do
       assert page.has_content? 'Conquer the world'
