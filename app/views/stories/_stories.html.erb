@@ -3,6 +3,8 @@
     <%= story.title %> - <%= story.points %>
     -
     <%= link_to 'Edit', edit_story_path(story) %>
+    -
+    <%= link_to 'Destroy', story_path(story), method: 'delete', confirm: 'Are you sure?' %>
   </div>
 <% end %>
 

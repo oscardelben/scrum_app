@@ -37,4 +37,12 @@ class StoriesController < ApplicationController
 
     respond_with @story, location: stories_path
   end
+
+  def destroy
+    @story = Story.find params[:id]
+    @story.destroy
+    flash[:notice] = 'Story was successfully deleted.'
+
+    respond_with @story, location: stories_path
+  end
 end
